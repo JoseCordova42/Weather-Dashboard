@@ -21,71 +21,71 @@
         <div class="row">
             <div class="col-md-3">
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search for city..." aria-label="Search">
-                    <button class="btn btn-primary btn-outline-light" type="submit">Search</button>
+                    <input class="form-control me-2" type="search" placeholder="Search for city..." aria-label="Search" id="citySearch">
+                    <button class="btn btn-primary btn-outline-light" type="submit" id="searchBtn">Search</button>
                 </form>
 
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">Austin</a>
-                    <a href="#" class="list-group-item list-group-item-action">Chicago</a>
-                    <a href="#" class="list-group-item list-group-item-action">New York</a>
-                    <a href="#" class="list-group-item list-group-item-action">Orlando</a>
-                    <a href="#" class="list-group-item list-group-item-action">San Francisco</a>
-                    <a href="#" class="list-group-item list-group-item-action">Seattle</a>
-                    <a href="#" class="list-group-item list-group-item-action">Denver</a>
-                    <a href="#" class="list-group-item list-group-item-action">Atlanta</a>
+                <div class="list-group" id="cityLinks">
+                    <a href="#" class="list-group-item list-group-item-action" id="Austin">Austin</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="Chicago">Chicago</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="NewYork">New York</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="Orlando">Orlando</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="SanFrancisco">San Francisco</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="Seattle">Seattle</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="Denver">Denver</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="Atlanta">Atlanta</a>
                 </div>
             </div>
 
             <div class="col-md-9">
                 <div class="row">
                     <div class="card">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">City and Date</li>
-                            <li class="list-group-item">Temperature</li>
-                            <li class="list-group-item">Humidity</li>
-                            <li class="list-group-item">Wind Speed</li>
-                            <li class="list-group-item">UV Index</li>
+                        <ul class="list-group list-group-flush" id="cityInfo">
+                            <li class="list-group-item" id="cityPlusDate">City and Date</li>
+                            <li class="list-group-item" id="cityTemp">Temperature</li>
+                            <li class="list-group-item" id="cityHumid">Humidity</li>
+                            <li class="list-group-item" id="cityWind">Wind Speed</li>
+                            <li class="list-group-item" id="cityUV">UV Index</li>
                         </ul>
                     </div>
                 </div>
 
                 <h5 class="fiveDayForecast">5 Day Forecast </h5>
 
-                <div class="row">
-                    <div class="card bg-primary text-light" style="width: 18rem;">
+                <div class="row" id="5Days">
+                    <div class="card bg-primary text-light" style="width: 18rem;" id="day1">
                         <div class="card-body">
-                            <h5 class="card-title">Date</h5>
-                            <p class="card-text">Temperature</p>
-                            <p class="card-text">Humidity</p>
+                            <h5 class="card-title" id="day1Date">Date</h5>
+                            <p class="card-text" id="day1Temp">Temperature</p>
+                            <p class="card-text" id="day1Humid">Humidity</p>
                         </div>
                     </div>
-                    <div class="card bg-primary text-light" style="width: 18rem;">
+                    <div class="card bg-primary text-light" style="width: 18rem;" id="day2">
                         <div class="card-body">
-                            <h5 class="card-title">Date</h5>
-                            <p class="card-text">Temperature</p>
-                            <p class="card-text">Humidity</p>
+                            <h5 class="card-title" id="day2Date">Date</h5>
+                            <p class="card-text" id="day2Temp">Temperature</p>
+                            <p class="card-text" id="day2Humid">Humidity</p>
                         </div>
                     </div>
-                    <div class="card bg-primary text-light" style="width: 18rem;">
+                    <div class="card bg-primary text-light" style="width: 18rem;" id="day3">
                         <div class="card-body">
-                            <h5 class="card-title">Date</h5>
-                            <p class="card-text">Temperature</p>
-                            <p class="card-text">Humidity</p>
+                            <h5 class="card-title" id="day3Date">Date</h5>
+                            <p class="card-text" id="day3Temp">Temperature</p>
+                            <p class="card-text" id="day3Humid">Humidity</p>
                         </div>
                     </div>
-                    <div class="card bg-primary text-light" style="width: 18rem;">
+                    <div class="card bg-primary text-light" style="width: 18rem;" id="day4">
                         <div class="card-body">
-                            <h5 class="card-title">Date</h5>
-                            <p class="card-text">Temperature</p>
-                            <p class="card-text">Humidity</p>
+                            <h5 class="card-title" id="day4Date">Date</h5>
+                            <p class="card-text" id="day4Temp">Temperature</p>
+                            <p class="card-text" id="day4Humid">Humidity</p>
                         </div>
                     </div>
-                    <div class="card bg-primary text-light" style="width: 18rem;">
+                    <div class="card bg-primary text-light" style="width: 18rem;" id="day5">
                         <div class="card-body">
-                            <h5 class="card-title">Date</h5>
-                            <p class="card-text">Temperature</p>
-                            <p class="card-text">Humidity</p>
+                            <h5 class="card-title" id="day5Date">Date</h5>
+                            <p class="card-text" id="day5Temp">Temperature</p>
+                            <p class="card-text" id="day5Humid">Humidity</p>
                         </div>
                     </div>
                 </div>
