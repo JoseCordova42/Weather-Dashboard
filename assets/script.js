@@ -19,7 +19,6 @@ var cityDate = $("#cityPlusDate");
 var cityTemp = $("#cityTemp");
 var cityHumid = $("#cityHumid");
 var cityWind = $("#cityWind");
-var cityUV = $("#cityUV");
 
 // 5-Day Forecast------------------
 var fiveDays = $("#5Days");
@@ -52,12 +51,33 @@ var day5Humid = $("#day5Humid");
 // Functions
 function searchWeather() {
     var city = searchedCity.val().trim();
-    var queryURL = "api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b1a89c4bdd79dbec82ba3b66e5df9e09";
+
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b1a89c4bdd79dbec82ba3b66e5df9e09&units=imperial";
     $.ajax({
         url: queryURL,
         method: "GET"        
     }).then(function(response) {
-        console.log(response);
+        cityDate.text(response.name);
+        cityTemp.text("Temperature: " + response.main.temp + " F");
+        cityHumid.text("Humidity: " + response.main.humidity + "%");
+        cityWind.text("Wind Speed: " + response.wind.speed + "mph");
+    });
+
+    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=ebe25a82700b36c9e609f29681be7620&units=imperial";
+    $.ajax({
+        url: fiveDayURL,
+        method: "GET"        
+    }).then(function(response) {
+        day1Temp.text("Temp: " + response.list[3].main.temp + " F");
+        day1Humid.text("Humidity: " + response.list[3].main.humidity + "%");
+        day2Temp.text("Temp: " + response.list[11].main.temp + " F");
+        day2Humid.text("Humidity: " + response.list[11].main.humidity + "%");
+        day3Temp.text("Temp: " + response.list[19].main.temp + " F");
+        day3Humid.text("Humidity: " + response.list[19].main.humidity + "%");
+        day4Temp.text("Temp: " + response.list[27].main.temp + " F");
+        day4Humid.text("Humidity: " + response.list[27].main.humidity + "%");
+        day5Temp.text("Temp: " + response.list[35].main.temp + " F");
+        day5Humid.text("Humidity: " + response.list[35].main.humidity + "%");
     });
 
 }
@@ -65,15 +85,39 @@ function searchWeather() {
 // Event Listeners
 searchBtn.on("click", function(event) {
     event.preventDefault();
-    console.log(searchedCity.val().trim());
     searchWeather();
 })
 
 cities.on("click", function(event) {
     event.preventDefault();
     // console.log(event.target.id);
+    var city = event.target.text;
+
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b1a89c4bdd79dbec82ba3b66e5df9e09&units=imperial";
+    $.ajax({
+        url: queryURL,
+        method: "GET"        
+    }).then(function(response) {
+        cityDate.text(response.name);
+        cityTemp.text("Temperature: " + response.main.temp + " F");
+        cityHumid.text("Humidity: " + response.main.humidity + "%");
+        cityWind.text("Wind Speed: " + response.wind.speed + "mph");
+    });
+
+    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=ebe25a82700b36c9e609f29681be7620&units=imperial";
+    $.ajax({
+        url: fiveDayURL,
+        method: "GET"        
+    }).then(function(response) {
+        day1Temp.text("Temp: " + response.list[3].main.temp + " F");
+        day1Humid.text("Humidity: " + response.list[3].main.humidity + "%");
+        day2Temp.text("Temp: " + response.list[11].main.temp + " F");
+        day2Humid.text("Humidity: " + response.list[11].main.humidity + "%");
+        day3Temp.text("Temp: " + response.list[19].main.temp + " F");
+        day3Humid.text("Humidity: " + response.list[19].main.humidity + "%");
+        day4Temp.text("Temp: " + response.list[27].main.temp + " F");
+        day4Humid.text("Humidity: " + response.list[27].main.humidity + "%");
+        day5Temp.text("Temp: " + response.list[35].main.temp + " F");
+        day5Humid.text("Humidity: " + response.list[35].main.humidity + "%");
+    });
 })
-
-
-
-// api.openweathermap.org/data/2.5/forecast?q={city name}&appid=ebe25a82700b36c9e609f29681be7620
