@@ -56,24 +56,13 @@ var day5Humid = $("#day5Humid");
 function searchWeather() {
     var city = searchedCity.val().trim();
 
-    localStorage.setItem("last city", JSON.stringify(city));
-    var storedCity = JSON.parse(localStorage.getItem("last city"));
-
-    if (city === "") {
-        return;
-    } else {
-        cities.prepend(/*html*/`
-        <a href="#" class="list-group-item list-group-item-action" id=${storedCity}>${storedCity}</a>
-    `);
-    }
-
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b1a89c4bdd79dbec82ba3b66e5df9e09&units=imperial";
     $.ajax({
         url: queryURL,
         method: "GET"        
     }).then(function(response) {
         var weatherIcon = response.weather[0].icon;
-        cityDate.text(response.name + " " +  dayjs().format('dddd, MMMM D, YYYY'));
+        cityDate.text(response.name + " / " +  dayjs().format('dddd, MMMM D, YYYY'));
         cityDate.append(/*html*/`
             <img src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png">
             `);
@@ -109,6 +98,17 @@ function searchWeather() {
         day5Humid.text("Humidity: " + response.list[35].main.humidity + "%");
     });
 
+    localStorage.setItem("last city", JSON.stringify(city));
+    var storedCity = JSON.parse(localStorage.getItem("last city"));
+
+    if (city === "" || cities.children().text().includes(city) === true) {
+        return;
+    } else {
+        cities.prepend(/*html*/`
+        <a href="#" class="list-group-item list-group-item-action" id=${storedCity}>${storedCity}</a>
+    `);
+    }
+
 }
 
 // Event Listeners
@@ -127,7 +127,7 @@ cities.on("click", function(event) {
         method: "GET"        
     }).then(function(response) {
         var weatherIcon = response.weather[0].icon;
-        cityDate.text(response.name + " " + dayjs().format('dddd, MMMM D, YYYY'));
+        cityDate.text(response.name + " / " + dayjs().format('dddd, MMMM D, YYYY'));
         cityDate.append(/*html*/`
             <img src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png">
             `);
