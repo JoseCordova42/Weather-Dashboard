@@ -1,0 +1,27 @@
+body {
+    background: url(images/clouds-and-horizon.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  }
+
+.container {
+    margin-top: 1%;
+}
+
+#citySearch, .mainCard{
+    border-color: black;
+}
+
+#cityPlusDate {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.fiveDayForecast {
+    margin-top: 1%;
+}
+
+#fiveDays {
+    margin-top: 1%;
+}
