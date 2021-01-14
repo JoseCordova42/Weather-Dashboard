@@ -1,3 +1,7 @@
+//import dayjs from 'dayjs'
+dayjs().format();
+$("#today").text(dayjs().format('dddd, MMMM D, YYYY'));
+
 // User Input and Search------------------
 var searchedCity = $("#citySearch");
 var searchBtn = $("#searchBtn");
@@ -57,7 +61,7 @@ function searchWeather() {
         url: queryURL,
         method: "GET"        
     }).then(function(response) {
-        cityDate.text(response.name);
+        cityDate.text(response.name + " " +  dayjs().format('dddd, MMMM D, YYYY'));
         cityTemp.text("Temperature: " + response.main.temp + " F");
         cityHumid.text("Humidity: " + response.main.humidity + "%");
         cityWind.text("Wind Speed: " + response.wind.speed + "mph");
@@ -68,14 +72,19 @@ function searchWeather() {
         url: fiveDayURL,
         method: "GET"        
     }).then(function(response) {
+        day1Date.text(dayjs().add(1, 'day').format('dd - M/D/YY'));
         day1Temp.text("Temp: " + response.list[3].main.temp + " F");
         day1Humid.text("Humidity: " + response.list[3].main.humidity + "%");
+        day2Date.text(dayjs().add(2, 'day').format('dd - M/D/YY'));
         day2Temp.text("Temp: " + response.list[11].main.temp + " F");
         day2Humid.text("Humidity: " + response.list[11].main.humidity + "%");
+        day3Date.text(dayjs().add(3, 'day').format('dd - M/D/YY'));
         day3Temp.text("Temp: " + response.list[19].main.temp + " F");
         day3Humid.text("Humidity: " + response.list[19].main.humidity + "%");
+        day4Date.text(dayjs().add(4, 'day').format('dd - M/D/YY'));
         day4Temp.text("Temp: " + response.list[27].main.temp + " F");
         day4Humid.text("Humidity: " + response.list[27].main.humidity + "%");
+        day5Date.text(dayjs().add(5, 'day').format('dd - M/D/YY'));
         day5Temp.text("Temp: " + response.list[35].main.temp + " F");
         day5Humid.text("Humidity: " + response.list[35].main.humidity + "%");
     });
@@ -90,7 +99,6 @@ searchBtn.on("click", function(event) {
 
 cities.on("click", function(event) {
     event.preventDefault();
-    // console.log(event.target.id);
     var city = event.target.text;
 
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b1a89c4bdd79dbec82ba3b66e5df9e09&units=imperial";
@@ -98,7 +106,7 @@ cities.on("click", function(event) {
         url: queryURL,
         method: "GET"        
     }).then(function(response) {
-        cityDate.text(response.name);
+        cityDate.text(response.name + " " + dayjs().format('dddd, MMMM D, YYYY'));
         cityTemp.text("Temperature: " + response.main.temp + " F");
         cityHumid.text("Humidity: " + response.main.humidity + "%");
         cityWind.text("Wind Speed: " + response.wind.speed + "mph");
@@ -109,14 +117,19 @@ cities.on("click", function(event) {
         url: fiveDayURL,
         method: "GET"        
     }).then(function(response) {
+        day1Date.text(dayjs().add(1, 'day').format('dd - M/D/YY'));
         day1Temp.text("Temp: " + response.list[3].main.temp + " F");
         day1Humid.text("Humidity: " + response.list[3].main.humidity + "%");
+        day2Date.text(dayjs().add(2, 'day').format('dd - M/D/YY'));
         day2Temp.text("Temp: " + response.list[11].main.temp + " F");
         day2Humid.text("Humidity: " + response.list[11].main.humidity + "%");
+        day3Date.text(dayjs().add(3, 'day').format('dd - M/D/YY'));
         day3Temp.text("Temp: " + response.list[19].main.temp + " F");
         day3Humid.text("Humidity: " + response.list[19].main.humidity + "%");
+        day4Date.text(dayjs().add(4, 'day').format('dd - M/D/YY'));
         day4Temp.text("Temp: " + response.list[27].main.temp + " F");
         day4Humid.text("Humidity: " + response.list[27].main.humidity + "%");
+        day5Date.text(dayjs().add(5, 'day').format('dd - M/D/YY'));
         day5Temp.text("Temp: " + response.list[35].main.temp + " F");
         day5Humid.text("Humidity: " + response.list[35].main.humidity + "%");
     });
