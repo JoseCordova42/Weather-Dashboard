@@ -14,7 +14,9 @@ Application is used primarily for checking current weather of a given location a
 
 [Jquery](https://jquery.com/)
 
-[Dayjs](https://day.js.org/)
+[Day.js](https://day.js.org/)
+
+[Stephen Price](https://github.com/stephenlprice) for helping implement Dayjs.
 
 [OpenWeather API](https://openweathermap.org/)
 
@@ -22,7 +24,7 @@ Application is used primarily for checking current weather of a given location a
 
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) 2021 Jose Cordova
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
